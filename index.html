@@ -5,16 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src=https://tailwind-elements.com/docs/standard/components/cards/</script>
+    <script>tailwind.config = {
+            theme:
+            {
+                extend:
+                    { fontFamily: { sans: ['Inter', 'sans-serif'], }, }
+            }
+        }</script>
     <title>Movie Soundtrack Finder</title>
 </head>
 
 <body>
     <header>Movie Soundtrack Finder</header>
+    
     <div id="navbar">
         <a class="active" href="#">Link1</a>
         <input type="text" placeholder="search here">
+         <!-- Tailwind Search -->
+        <div class="flex justify-center">
+            <div class="mb-3 xl:w-96">
+                <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
+                    <input type="search"
+                        class="form-control relative flex-auto min-w-0 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                        placeholder="Search" aria-label="Search" aria-describedby="button-addon3">
+                    <button
+                        class="btn inline-block px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
+                        type="button" id="button-addon3">Search</button>
+                </div>
+            </div>
+        </div>
     </div>
     
     <form action="/action-page.php" method="GET">
@@ -34,12 +59,9 @@
     </div>
   </div>
 </div>
-    
-    
-              
-              
 
-    <script src="script.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+            <script src="script.js"></script>
 </body>
 
 </html>
