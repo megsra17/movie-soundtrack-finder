@@ -24,7 +24,7 @@ const option = {
     //display movie title along with image
 function searchHandler(event){
 	event.preventDeafult();
-	var title = titleEl.ariaValueMax.trim();
+	var title = titleEl.value.trim();
 
 	movieTitle(title);
 	movieAlbum(title);
