@@ -1,6 +1,7 @@
 //create variables for elements
 var searchEl = document.querySelector('#search-form')
-var titleEl = document.querySelector('#title-input')
+var titleEl = document.querySelector('form')
+var posterEl = document.querySelector('#movie-poster')
 
 //spotify api
 const options = {
@@ -11,20 +12,12 @@ const options = {
 	}
 };
 
-//movie api
-const option = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'e6120f0cfdmsh626c61ade9001c5p1868bfjsn9aab679eeb68',
-		'X-RapidAPI-Host': 'mdblist.p.rapidapi.com'
-	}
-};
 //create a function to get elements from search movie
     //add event listener to search
     //display movie title along with image
 function searchHandler(event){
-	event.preventDeafult();
-	var title = titleEl.ariaValueMax.trim();
+	event.preventDefault();
+	var title = searchEl.value.trim();
 
 	movieTitle(title);
 	movieAlbum(title);
@@ -37,17 +30,19 @@ function searchHandler(event){
     //play song on site (hard)
 
 function movieTitle(title){
+	var posterApi = "https://www.myapifilms.com/imdb/idIMDB?title="+title+"&token=1eb8002a-8b27-40de-8d5b-1327dd9830dd&format=json&language=en-us&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=2&exactFilter=0&limit=1&forceYear=0&trailers=0&movieTrivia=0&awards=0&moviePhotos=0&movieVideos=0&actors=0&biography=0&uniqueName=0&filmography=0&bornAndDead=0&starSign=0&actorActress=0&actorTrivia=0&similarMovies=0&adultSearch=0&goofs=0&keyword=0&quotes=0&fullSize=1&companyCredits=0&filmingLocations=0"
 
-    fetch('https://mdblist.p.rapidapi.com/?s=jaws', options);
+    fetch(posterApi)
 	.then(function(response){
 		return response.json();
 	})
 	.then(function(titles){
+		console.log(titles);
+		posterEl.src = posterEl.src = titles.data.movies[0].urlPoster;
 		
 	})
-	.catch(err => console.error(err));
 
-	titleEl.value = ''
+	searchEl.value = '';
 
 }
 
@@ -60,4 +55,5 @@ function movieAlbum(title){
 
 }
 
-searchEl.addEventListener('button', searchHandler)
+titleEl.addEventListener('submit', searchHandler)
+
