@@ -70,3 +70,5 @@ function movieAlbum(title){
 
 titleEl.addEventListener('submit', searchHandler)
 
+//test
+
