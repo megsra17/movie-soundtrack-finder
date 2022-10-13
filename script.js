@@ -46,7 +46,7 @@ function movieTitle(title){
 
 }
 	function movieAlbum(title){
-		var playlistapi = "https://spotify23.p.rapidapi.com/search/?q="+title+"&type=playlists&offset=0&limit=4&numberOfTopResults=4"
+		var playlistapi = "https://spotify23.p.rapidapi.com/search/?q="+title+"&type=playlists&offset=0&limit=6&numberOfTopResults=6"
 		
 		const options = {
 			method: 'GET',
