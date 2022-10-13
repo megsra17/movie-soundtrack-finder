@@ -2,6 +2,7 @@
 var searchEl = document.querySelector('#search-form')
 var titleEl = document.querySelector('form')
 var posterEl = document.querySelector('#movie-poster')
+var posterName = document.querySelector('#posterName')
 
 //spotify api
 const options = {
@@ -38,8 +39,20 @@ function movieTitle(title){
 	})
 	.then(function(titles){
 		console.log(titles);
-		posterEl.src = posterEl.src = titles.data.movies[0].urlPoster;
 		
+		posterEl.src = titles.data.movies[0].urlPoster;
+
+		posterName.textContent = titles.data.movies[0].title;
+		console.log(posterName, posterEl)
+		
+		posterEl.parentNode.insertBefore(posterName, posterEl.nextSibling);
+
+		posterName.classList.add('bottom');
+		posterName.classList.add('left');
+		posterName.classList.add('absolute');
+		posterName.classList.add('text-white');
+		posterName.classList.add('font-bold');
+		posterName.classList.add('text-8xl');
 	})
 
 	searchEl.value = '';
@@ -75,4 +88,6 @@ function movieTitle(title){
 // }
 
 titleEl.addEventListener('submit', searchHandler)
+
+//test
 
