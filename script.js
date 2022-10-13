@@ -45,15 +45,34 @@ function movieTitle(title){
 	searchEl.value = '';
 
 }
+	function movieAlbum(title){
+		var playlistapi = "https://spotify23.p.rapidapi.com/search/?q="+title+"&type=playlists&offset=0&limit=6&numberOfTopResults=6"
+		
+		const options = {
+			method: 'GET',
+			headers: {
+				'X-RapidAPI-Key': '4b54c538bcmsh85a4b6242a567acp123fb7jsn84b57c55ec54',
+				'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+			}
+		};
+		
+		fetch(playlistapi, options)
+			.then(response => response.json())
+			.then(response => console.log(response))
+			.catch(err => console.error(err));
 
-function movieAlbum(title){
 
-    fetch('https://spotify23.p.rapidapi.com/search/?q=%3CREQUIRED%3E&type=playlists&offset=0&limit=10&numberOfTopResults=5', option)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err));
 
-}
+	}
+
+// function movieAlbum(title){
+	
+//     fetch('https://spotify23.p.rapidapi.com/search/?q=%3CREQUIRED%3E&type=playlists&offset=0&limit=10&numberOfTopResults=5', option)
+// 	.then(response => response.json())
+// 	.then(response => console.log(response))
+// 	.catch(err => console.error(err));
+
+// }
 
 titleEl.addEventListener('submit', searchHandler)
 
