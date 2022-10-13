@@ -9,6 +9,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <link rel="stylesheet" href="./style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script src=https://tailwind-elements.com/docs/standard/components/cards />
     </script>
@@ -49,29 +50,34 @@
             </div>
         </div>
     </div>
-    <main class="">
-        <img id="movie-poster" class="pt-5 w-full max-h-fit"
-            src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-            alt="image of selected movie" />
-        <div class="grid grid-cols-4 gap-4 px-3 py-4 p-lg-5">
-            <div class="flex justify-center pt-4">
-                <div class="rounded-lg shadow-lg bg-white max-w-sm">
-                    <a href="#!">
-                        <img class="rounded-t-lg"
-                            src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-                            alt="image of selected movie" />
-                    </a>
-                    <div class="p-6">
-                        <h5 class="text-gray-900 text-xl font-medium mb-2">"name of selected movie"</h5>
-                        <button type="button"
-                            class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
+    <main>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="col-span-2">
+                <div class="relative">
+                    <img id="movie-poster" class="pt-5"
+                        src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                        alt="image of selected movie" />
+                    <p id="posterName"></p>
+                </div>
+            </div>
+            <div class="col-span-8">
+                <div class="grid grid-cols-3 gap-4 px-3 py-4 p-lg-5">
+                    <div class="flex justify-center pt-4">
+                        <div class="rounded-lg shadow-lg bg-white max-w-sm">
+                            <a href="#!">
+                                <img class="rounded-t-lg"
+                                    src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                                    alt="image of selected movie" />
+                            </a>
+                            <div class="p-6">
+                                <h5 class="text-gray-900 text-xl font-medium mb-2">"name of selected movie"</h5>
+                                <button type="button"
+                                    class="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Button</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-        </div>
-
     </main>
 
 
