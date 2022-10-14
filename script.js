@@ -1,18 +1,21 @@
 //create variables for elements
-var searchEl = document.querySelector('#search-form')
-var titleEl = document.querySelector('form')
-var posterEl = document.querySelector('#movie-poster')
-var posterName = document.querySelector('#posterName')
+var searchEl = document.querySelector('#search-form');
+var titleEl = document.querySelector('form');
+var posterEl = document.querySelector('#movie-poster');
+var posterName = document.querySelector('#posterName');
+var albumCover = document.querySelector('#album-cover');
 var mainEl = document.querySelector('main');
+var albumTitle = document.querySelector('h5');
+var urlLink = document.querySelector('#url-link');
 
-//spotify api
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'e6120f0cfdmsh626c61ade9001c5p1868bfjsn9aab679eeb68',
-		'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-	}
-};
+
+// const options = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': 'e6120f0cfdmsh626c61ade9001c5p1868bfjsn9aab679eeb68',
+// 		'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+// 	}
+// };
 
 function searchHandler(event){
 	event.preventDefault();
@@ -25,7 +28,7 @@ function searchHandler(event){
 }
 
 function movieTitle(title){
-	var posterApi = "https://www.myapifilms.com/imdb/idIMDB?title="+title+"&token=1eb8002a-8b27-40de-8d5b-1327dd9830dd&format=json&language=en-us&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=2&exactFilter=0&limit=1&forceYear=0&trailers=0&movieTrivia=0&awards=0&moviePhotos=0&movieVideos=0&actors=0&biography=0&uniqueName=0&filmography=0&bornAndDead=0&starSign=0&actorActress=0&actorTrivia=0&similarMovies=0&adultSearch=0&goofs=0&keyword=0&quotes=0&fullSize=1&companyCredits=0&filmingLocations=0"
+	var posterApi = "https://www.myapifilms.com/imdb/idIMDB?title="+title+"&token=1eb8002a-8b27-40de-8d5b-1327dd9830dd&format=json&language=en-us&aka=0&business=0&seasons=0&seasonYear=0&technical=0&filter=2&exactFilter=0&limit=1&forceYear=0&trailers=0&movieTrivia=0&awards=0&moviePhotos=0&movieVideos=0&actors=0&biography=0&uniqueName=0&filmography=0&bornAndDead=0&starSign=0&actorActress=0&actorTrivia=0&similarMovies=0&adultSearch=0&goofs=0&keyword=0&quotes=0&fullSize=1&companyCredits=0&filmingLocations=0";
 
     fetch(posterApi)
 	.then(function(response){
@@ -37,8 +40,9 @@ function movieTitle(title){
 
 		posterName.textContent = titles.data.movies[0].title;
 		console.log(posterName, posterEl)
+		
+		posterName.appendChild(mainEl);
 
-		posterName.appendChild(mainEl)
 	})
 
 	searchEl.value = '';
@@ -51,9 +55,7 @@ function movieTitle(title){
     //play song on site (hard)
 	
 	function movieAlbum(title){
-		var playlistapi = "https://spotify23.p.rapidapi.com/search/?q="+title+"&type=playlists&offset=0&limit=6&numberOfTopResults=6"
-
-		console.log(playlistapi);
+		var playlistapi = "https://spotify23.p.rapidapi.com/search/?q="+title+"&type=playlists&offset=0&limit=6&numberOfTopResults=6";
 		
 		const options = {
 			method: 'GET',
@@ -64,13 +66,27 @@ function movieTitle(title){
 		};
 		
 		fetch(playlistapi, options)
-			.then(response => response.json())
-			.then(response => console.log(response))
-			.catch(err => console.error(err));
+			.then(function(response){
+				return response.json();
+			})
+			.then(function(titles){
+				console.log(titles);
+				for(var i = 0;i<titles.playlists.items.length;i++){
+					albumCover.src = titles.playlists.items[i].data.images.items[0].sources[0].url;
+					albumTitle.textContent = titles.playlists.items[i].data.name;
+					var userPlaylist = titles.playlists.items[i].data.uri.split(":")[2]
+					urlLink.href="https://open.spotify.com/playlist/"+userPlaylist;
+					
+					
+				}
+			})
 
+		
 
-
+		
 	}
+
+	
 
 // function movieAlbum(title){
 	
@@ -81,7 +97,7 @@ function movieTitle(title){
 
 // }
 
-titleEl.addEventListener('submit', searchHandler)
+titleEl.addEventListener('submit', searchHandler);
 
 //test
 
