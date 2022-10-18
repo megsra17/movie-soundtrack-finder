@@ -44,8 +44,14 @@ function movieTitle(title) {
       return response.json();
     })
     .then(function (titles) {
-      posterEl.src = titles.data.movies[0].urlPoster;
-      posterName.textContent = titles.data.movies[0].title;
+      if (titles.data.movies.length > 0) {
+        posterEl.src = titles.data.movies[0].urlPoster;
+        posterName.textContent = titles.data.movies[0].title;
+        posterName.classList.remove("redcolor");
+      } else {
+        posterName.textContent = "Invaild Title";
+        posterName.classList.add("redcolor");
+      }
     });
 
   searchEl.value = "";
@@ -133,3 +139,4 @@ function movieAlbum(title) {
 
 titleEl.addEventListener("submit", searchHandler);
 renderPastSearch();
+localStorage.clear();

@@ -5,3 +5,7 @@
 .left {
   left: 134px;
 }
+
+#posterName.redcolor {
+  color: crimson;
+}
