@@ -14,7 +14,6 @@ function searchHandler(event) {
   event.preventDefault();
   var title = searchEl.value.trim();
 
-  //get current searches(string)
   var pastMovieNames = JSON.parse(localStorage.getItem("movie-names")) || [];
   pastMovieNames.push(title);
   localStorage.setItem("movie-names", JSON.stringify(pastMovieNames));
@@ -25,7 +24,6 @@ function searchHandler(event) {
 }
 
 function renderPastSearch() {
-  //clear ul list
   pastSearch.innerHTML = "";
   var pastMovieNames = JSON.parse(localStorage.getItem("movie-names")) || [];
   for (var i = 0; i < pastMovieNames.length; i++) {
@@ -52,11 +50,6 @@ function movieTitle(title) {
 
   searchEl.value = "";
 }
-
-//create a function to get playlist from searched movie
-//display playlist picture
-//display playlist title
-//play song on site (hard)
 
 function movieAlbum(title) {
   var playlistapi =
