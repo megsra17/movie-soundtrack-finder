@@ -1,5 +1,5 @@
 # Movie Soundtrack Finder
-As a Movie and Music enthuses I WANT to see the Movie Title as a playlist SO THAT I can see the songs in the movie
+As a Movie and Music enthusiast, I WANT to see the Movie Title as a playlist SO THAT I can see the songs in the movie
 
 ## Project Challenge Description
 You and your group will use everything you’ve learned over the past six weeks to create a real-world front-end application that you’ll be able to showcase to potential employers. The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
